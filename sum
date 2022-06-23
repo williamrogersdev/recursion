@@ -1,2 +1,16 @@
 Challenge 2
 Write a recursive function sum that calculates the sum of an array of integers.
+
+
+function sum(array, nums = 0) {
+//base case for if the array is empty
+  if (array[0] === undefined) {
+    return nums
+  }
+  return sum(array.slice(1), nums += array[0])
+}
+
+
+// uncomment these to check your work
+ console.log(sum([1,1,1])); // -> returns 3
+ console.log(sum([1,2,3,4,5,6])); // -> returns 21
