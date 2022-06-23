@@ -1,1 +1,21 @@
 Write a recursive function palindrome that accepts a string as an input and returns true if that string is a palindrome (the string is the same forward and backwards). The input string may have punctuation and symbols, but that should not affect whether the string is a palindrome.
+
+
+ function palindrome (str) {
+  // remove non-alphanumeric characters and
+  // change the string to lowercase
+  str = str.replace(/[^a-z0-9]/i, '').toLowerCase();
+
+  // and get the length of the string
+  // const len = str.length;
+  //BASE CASE 
+if (str.length <= 1) return true;
+    
+    
+    //if the first and last chars at not equal return false 
+  if (str[0] !== str[str.length - 1]) return false;
+
+  // proper tail call optimized recursion
+  return palindrome(str.slice(1, -1));
+}
+//USE slive to remove first and last chars of string 
