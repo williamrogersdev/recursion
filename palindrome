@@ -19,3 +19,37 @@ if (str.length <= 1) return true;
   return palindrome(str.slice(1, -1));
 }
 //USE slive to remove first and last chars of string 
+
+
+
+
+
+++++++++++++
+
+
+
+
+
+function palindrome(str) {
+  let re = /[^A-Za-z0-9]/g;
+ str = str.toLowerCase().replace(re, '');
+  
+  // and get the length of the string
+  // const len = str.length;
+  //BASE CASE 
+if (str.length <= 1) return true;
+    
+    
+    //if the first and last chars at not equal return false 
+  if (str[0] !== str[str.length - 1]) return false;
+
+  // proper tail call optimized recursion
+  return palindrome(str.slice(1, -1));
+}
+//   if (revStr === lowRegStr) { return true}
+  
+//   return false
+
+console.log(palindrome("Anne, I vote more cars race Rome-to-Vienna")); //-> true
+console.log(palindrome("llama mall")); //-> true
+console.log(palindrome("jmoney")); //-> false
